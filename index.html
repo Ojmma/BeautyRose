@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="téléchargement.ico">
+    <title>🌸 Rose Beauté</title>
+</head>
+<style>
+        span{
+        font-weight: bold;
+        font-size: 4rem;
+    }
+</style>
+
+<body>
+
+    <header>
+        <a href="" class="logo">Beauty Rose Salon</a>
+
+        <ul>
+            <li class="active"><a href="index.html">Accuielle</a></li>
+            <li><a href="service.html">Service</a></li>
+            <li><a href="about.html">A propos</a></li>
+        </ul>
+    </header>
+
+    <section class="container cont1">
+
+        <div class="vp-content">
+            <div class="text">
+                <h1>🌸 Rose Beauté – L’art de révéler votre éclat naturel</h1>
+                <p>
+                   
+                    Coiffure, maquillage, soins du corps & ongles dans un espace chaleureux à Douala. Prenez soin de vous… vous le méritez !
+                </p>
+                <a href="https://wa.me/237695905443"> <button class="contact">Prenez rendez-vous!</button></a>
+            </div>
+            <div class="img">
+                <img src="rose.jpg" alt="">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="gallery">
+        <h2 style="text-align: center;">Services</h2>
+        <div class="container gall">
+
+            <div class="gal1">
+                <h3>Hairs</h3>
+
+                <div class="caroussel">
+                    <ul class="serv-content" >
+                        <li class="service odd">
+                            <img src="premium_photo-1664875849414-2ecb3b87a465.jpeg" alt="" class="im1">
+                    
+                        </li>
+                        <li class="service">
+                            <img src="premium_photo-1692602267893-e295d36c28b1.jpeg" alt="">
+                    
+                        </li>
+                        <li class="service odd">
+                            <img src="premium_photo-1694618624042-8a4b79019fdd.jpeg" alt="">
+                    
+                        </li>
+                    
+                    </ul>
+                </div>
+
+
+            </div>
+
+            <div class="gal1">
+                <h3>Make Up</h3>
+
+                    <div class="caroussel">
+                        <ul class="serv-content">
+                            <li class="service odd">
+                                <img src="makeup.jpg" alt="">
+                        
+                            </li>
+                            <li class="service">
+                                <img src="makeup1.jpg" alt="">
+                        
+                            </li>
+                            <li class="service odd">
+                                <img src="photo-1614977590705-10a7f9e7dcae.jpeg" alt="">
+                        
+                            </li>
+
+                        
+                        </ul>
+                    </div>
+
+                
+
+
+            </div>
+
+            <div class="gal1">
+                <h3><a href="service.html" class="more">Plus</a></h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="container ">
+
+        <div class="vp-content cont1">
+          
+            <div class="img">
+                <img src="fleur.jpg" alt="">
+            </div>
+
+            <div class="text">
+                
+                <p>
+                    Je suis <span>Rose Fleur</span>, coiffeuse et esthéticienne passionnée basée à Douala. Depuis plusieurs années, je mets mon
+                    savoir-faire au
+                    service de la beauté féminine dans mon petit salon chaleureux, situé a logbessou IUC . Que ce soit pour
+                    sublimer vos
+                    cheveux, prendre soin de votre peau, ou ajouter une touche glamour à votre look, je suis là pour vous
+                    chouchouter.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <h2>CopyRight&#9400;- ojmmaivir@gmail.com</h2>
+
+    </footer>
+
+
+
+
+
+        <script>
+
+           const servContents = document.querySelectorAll('.serv-content')
+
+            if(window.innerWidth < 500){
+
+            servContents.forEach((servContent)=>{
+            const listOfServices = document.querySelectorAll('.service')
+            
+
+            const slides = Array.from(servContent.children)
+
+            let currIndex = 0
+            const slidWidth = slides[0].getBoundingClientRect().width 
+
+            const updateSlidePosition = () => {
+                servContent.style.transform = `translateX(-${currIndex * slidWidth}px)`
+            }
+
+            const nextSlide = () =>{
+                currIndex = (currIndex + 1) % slides.length
+                updateSlidePosition()
+            }
+
+            setInterval(nextSlide, 3000)
+
+            listOfServices.forEach((listOfService, index) =>{
+                listOfService.addEventListener('click', ()=>{
+                    const scrollLeft = index * listOfServices[0].offsetWidth
+                    servContent.scrollTo({left: scrollLeft, behaviour:'smooth'})
+                })
+            })
+
+        })
+    }
+        </script>
+
+</body>
+
+</html>
